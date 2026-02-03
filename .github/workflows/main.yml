@@ -1,0 +1,17 @@
+name: Validation Système ETSE
+on: [push]
+
+jobs:
+  test-automatique:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v3
+
+      - name: Installation Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Lancement du diagnostic
+        run: python system_check.py
